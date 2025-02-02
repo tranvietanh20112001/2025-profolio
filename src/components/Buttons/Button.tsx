@@ -24,6 +24,10 @@ const SquareButton = {
     "&:hover": {
         bgcolor: C.Primary.Black,
         color: C.Primary.White,
+        '& svg': {
+            transform: 'scale(1.2)',
+            transition: 'transform 0.3s ease-in-out'
+                                    }
     }
 }
 
