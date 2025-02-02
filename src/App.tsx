@@ -1,4 +1,3 @@
-import Header from '@components/Header/Header';
 
 
 import { Box } from '@mui/material';
@@ -8,8 +7,7 @@ function App() {
 
   return (
     <>
-    <Box maxWidth={1440} minWidth={375} margin={"0 auto"}>
-      <Header />
+    <Box maxWidth={1440} minWidth={375} margin={"0 auto"} >
       <Index />
     </Box>
       

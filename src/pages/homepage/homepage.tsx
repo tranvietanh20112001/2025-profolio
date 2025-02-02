@@ -3,11 +3,14 @@ import logo from "@assets/logo3.gif";
 import B from "@components/Buttons/Button";
 import I from "@components/Icons/Icons";
 import { useState, useEffect } from "react";
+import AboutMe from "./aboutMe/aboutMe";
+import Header from '@components/Header/Header';
 
 const Homepage = () => {
     const roles = ["Developer", "Tester", "Tarot Reader", "Book Lover"];
     const [currentRole, setCurrentRole] = useState(0);
     const isMobile = useMediaQuery('(max-width:800px)');
+    const sections = ["homepage", "aboutme"];
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -17,12 +20,39 @@ const Homepage = () => {
         return () => clearInterval(interval);
     }, [roles.length]);
 
+    const [currentSection, setCurrentSection] = useState(0);
+
+    useEffect(() => {
+        if (!isMobile) {
+            const handleScroll = (event: WheelEvent) => {
+                if (event.deltaY > 0) {
+                    setCurrentSection((prev) => Math.min(prev + 1, sections.length - 1));
+                } else {
+                    setCurrentSection((prev) => Math.max(prev - 1, 0));
+                }
+            };
+
+            window.addEventListener("wheel", handleScroll);
+            return () => window.removeEventListener("wheel", handleScroll);
+        }
+    }, [isMobile, sections.length]);
+
+    useEffect(() => {
+        if (!isMobile) {
+            document.getElementById(sections[currentSection])?.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [currentSection, sections, isMobile]);
+
     return (
-        <Box width={"90%"} height={isMobile ? "auto" :716} display={"flex"} flexDirection={isMobile ? "column" : "row"} margin={"0 auto"} paddingBottom={"24px"}>
+        <>
+        <Box id="homepage"  width={"90%"} height={isMobile ? "auto" :"100vh"} margin={"0 auto"}>
+        <Header />
+        <Box  width={"100%"} height={isMobile ? "auto" :"90vh"} display={"flex"} flexDirection={isMobile ? "column" : "row"}  paddingBottom={"24px"}>
+        
             <Box width={isMobile ? "100%" : "50%"} height={isMobile ? "50%" : "100%"} display={isMobile? "flex": "none"} justifyContent={"center"} alignContent={"center"}>
                 <img src={logo} width={"100%"} height={"100%"} alt="Logo" />
             </Box>
-            <Box width={isMobile ? "100%" : "50%"} height={isMobile ? "50%" : "100%"} display={"flex"} flexDirection={"column"} gap={"24px"} justifyContent={"center"}>
+            <Box width={isMobile ? "100%" : "50%"} height={isMobile ? "50%" : "100%"} display={"flex"} flexDirection={"column"} gap={isMobile? "24px" :"40px"} justifyContent={"center"}>
                 <Typography variant={isMobile? "h5" :"h3"} fontWeight={200}>Hello, I'm <Typography variant={isMobile? "h5" :"h3"} component={"span"} fontWeight={500}>Tran Viet Anh</Typography></Typography>
                 <Typography variant={isMobile? "h6": "h4"} fontWeight={500}>A {roles[currentRole]} <Typography variant={isMobile? "h6": "h4"} component={"span"} fontWeight={200}>in HaNoi, VietNam</Typography> </Typography>
                 <Typography variant="body1" component="p" textAlign={"justify"}>
@@ -61,6 +91,15 @@ const Homepage = () => {
                 <img src={logo} width={"100%"} height={"100%"} alt="Logo" />
             </Box>
         </Box>
+        </Box>
+
+        
+        <Box id="aboutme">
+        <AboutMe />
+        </Box>
+            
+        
+        </>
     );
 };
 
