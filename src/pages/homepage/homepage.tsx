@@ -45,9 +45,9 @@ const Homepage = () => {
 
     return (
         <>
-        <Box id="homepage"  width={"90%"} height={isMobile ? "auto" :"100vh"} margin={"0 auto"}>
+        <Box id="homepage"  width={"100%"} height={isMobile ? "auto" :"100vh"} margin={"0 auto"}>
         <Header />
-        <Box  width={"100%"} height={isMobile ? "auto" :"90vh"} display={"flex"} flexDirection={isMobile ? "column" : "row"}  paddingBottom={"24px"}>
+        <Box  width={"90%"} height={isMobile ? "auto" :"90vh"} display={"flex"} flexDirection={isMobile ? "column" : "row"}  paddingBottom={"24px"} maxWidth={"1440px"} margin={"0 auto"}>
         
             <Box width={isMobile ? "100%" : "50%"} height={isMobile ? "50%" : "100%"} display={isMobile? "flex": "none"} justifyContent={"center"} alignContent={"center"}>
                 <img src={logo} width={"100%"} height={"100%"} alt="Logo" />
@@ -94,7 +94,7 @@ const Homepage = () => {
         </Box>
 
         
-        <Box id="aboutme">
+        <Box id="aboutme" margin={"0 auto"}>
         <AboutMe />
         </Box>
             

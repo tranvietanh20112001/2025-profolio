@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-    <Box maxWidth={1440} minWidth={375} margin={"0 auto"} >
+    <Box maxWidth={1960} minWidth={375} margin={"0 auto"} >
       <Index />
     </Box>
       
