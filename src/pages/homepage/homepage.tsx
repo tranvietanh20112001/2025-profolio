@@ -2,15 +2,16 @@ import { Box, Typography, Button, Divider, Tooltip, useMediaQuery } from "@mui/m
 import logo from "@assets/logo3.gif";
 import B from "@components/Buttons/Button";
 import I from "@components/Icons/Icons";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import AboutMe from "./aboutMe/aboutMe";
 import Header from '@components/Header/Header';
+import Exp from "./exp/exp";
 
 const Homepage = () => {
     const roles = ["Developer", "Tester", "Tarot Reader", "Book Lover"];
     const [currentRole, setCurrentRole] = useState(0);
     const isMobile = useMediaQuery('(max-width:800px)');
-    const sections = ["homepage", "aboutme"];
+    const sections = useMemo(() => ["homepage", "aboutme", "exp"], []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -98,6 +99,9 @@ const Homepage = () => {
         <AboutMe />
         </Box>
             
+        <Box id="exp" margin={"0 auto"}>
+        <Exp />
+        </Box>
         
         </>
     );
