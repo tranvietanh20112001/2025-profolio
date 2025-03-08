@@ -1,6 +1,6 @@
 const ExpItem = {
     width: "80%",
-    height: "400px",
+    height: "600px",
     border: "1px solid black",
     borderRadius: "10px",
     padding: "0 5%",

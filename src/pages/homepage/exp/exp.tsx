@@ -21,7 +21,7 @@ const Exp = () => {
                 <Typography variant={"body2"} color={C.Primary.Black} fontWeight={100}>1/2025 - Present</Typography>
 
                 <Typography variant={"body1"} color={C.Primary.Black} fontWeight={100}>
-                Currently, I am an Automation QA, responsible for designing, creating, and executing test cases to ensure software quality and reliability. I work with automation testing frameworks such as Cypress, Playwright, Cucumber, and Reflect to streamline testing processes, detect bugs early, and improve overall product stability. My role also involves analyzing test results, collaborating with developers to resolve issues, and continuously optimizing test scripts to enhance efficiency and coverage.
+                Currently, I am an Automation QA, responsible for designing, creating, and executing test cases to ensure software quality and reliability. I work with automation testing frameworks such as Cypress, Playwright, Cucumber, and Reflect to streamline testing processes, detect bugs early, and improve overall product stability.
                 </Typography>
             </Box>
             <Box sx={ExpItem} bgcolor={C.Zinc[800]}>

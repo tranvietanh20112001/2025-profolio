@@ -6,12 +6,14 @@ import { useState, useEffect, useMemo } from "react";
 import AboutMe from "./aboutMe/aboutMe";
 import Header from '@components/Header/Header';
 import Exp from "./exp/exp";
+import Projects from "@pages/projects/projects";
+import Contact from "@pages/contact/contact";
 
 const Homepage = () => {
     const roles = ["Developer", "Tester", "Tarot Reader", "Book Lover"];
     const [currentRole, setCurrentRole] = useState(0);
     const isMobile = useMediaQuery('(max-width:800px)');
-    const sections = useMemo(() => ["homepage", "aboutme", "exp"], []);
+    const sections = useMemo(() => ["homepage", "aboutme", "exp","projects", "contact"], []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -103,6 +105,13 @@ const Homepage = () => {
         <Exp />
         </Box>
         
+        <Box id="projects" margin={"0 auto"}>
+        <Projects />
+        </Box>
+
+        <Box id="contact" margin={"0 auto"}>
+        <Contact />
+        </Box>
         </>
     );
 };
